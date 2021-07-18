@@ -9,6 +9,22 @@ class Account extends Model
 
     public $incrementing = false;
 
+    public function withdraw($amount) {
+        if ($this->available >= $amount) {
+            $this->balance -= $amount;
+            return $this->save();
+        } else {
+            return False;
+        }
+    }
+
+    /**
+     * Attributes
+     */
+    public function getAvailableAttribute() {
+        return $this->balance + $this->overdraft_maximum;
+    }
+
     /**
      * Relationships
      */

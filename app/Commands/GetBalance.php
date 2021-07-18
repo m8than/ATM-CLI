@@ -38,7 +38,7 @@ class GetBalance extends Command
 
         if ($account && $account->pin == $account_pin) {
             $this->info('Balance: ' . $account->balance);
-            $this->info('Available: ' . ($account->balance + $account->overdraft_maximum));
+            $this->info('Available: ' . $account->available);
         } else {
             $this->error('Invalid account number or pin');
         }
