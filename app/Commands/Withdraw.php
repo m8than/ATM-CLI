@@ -3,6 +3,7 @@
 namespace App\Commands;
 
 use App\Models\Account;
+use App\Models\AtmTransaction;
 use App\Models\Datastore;
 use Illuminate\Console\Scheduling\Schedule;
 use LaravelZero\Framework\Commands\Command;
@@ -58,7 +59,10 @@ class Withdraw extends Command
         $atm_funds->value -= $amount;
         $atm_funds->save();
 
-        
+        $transaction = new AtmTransaction;
+        $transaction->account_id = $account->id;
+        $transaction->amount = -$amount;
+        $transaction->save();
     }
 
     /**

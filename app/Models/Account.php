@@ -34,7 +34,7 @@ class Account extends Model
         return $this->belongsToMany(Customer::class);
     }
 
-    public function transactions()
+    public function atm_transactions()
     {
         return $this->hasMany(AtmTransaction::class);
     }
