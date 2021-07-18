@@ -13,7 +13,7 @@ class CreateAccountsCustomersTable extends Migration
      */
     public function up()
     {
-        Schema::create('accounts_customers', function (Blueprint $table) {
+        Schema::create('account_customer', function (Blueprint $table) {
             $table->bigInteger('account_id');
             $table->bigInteger('customer_id');
             $table->timestamps();
