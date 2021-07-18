@@ -2,6 +2,15 @@
 
 A demonstration CLI application, written in PHP 7.3+ using framework [Laravel Zero](https://laravel-zero.com/).
 
+To be honest I was not sure how to go about the test input data and output asked for.
+
+It was confusing as I thought half of the input data was actually stuff I was meant to output but there was output and input on the same line.
+ 
+For example: "The user's account number, correct PIN and the PIN they actually entered. These are
+separated by spaces".
+
+Anyways, this system has commands for each different functionality asked for documented below.
+
 
 ## Installation
 
