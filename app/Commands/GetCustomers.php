@@ -38,6 +38,7 @@ class GetCustomers extends Command
 
         if ($account && $account->pin == $account_pin) {
             $customers = $account->customers;
+            $this->info('Customers:');
             foreach ($customers as $customer) {
                 $this->info($customer->full_name);
             }
