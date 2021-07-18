@@ -43,7 +43,7 @@ class GetWithdrawals extends Command
                 $this->info($atm_transaction->amount . ' - ' . $atm_transaction->created_at->diffForHumans());
             }
         } else {
-            $this->error('Invalid account number or pin');
+            $this->error('ACCOUNT_ERR');
         }
     }
 

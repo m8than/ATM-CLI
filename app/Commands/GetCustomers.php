@@ -43,7 +43,7 @@ class GetCustomers extends Command
                 $this->info($customer->full_name);
             }
         } else {
-            $this->error('Invalid account number or pin');
+            $this->error('ACCOUNT_ERR');
         }
     }
 

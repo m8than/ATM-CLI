@@ -42,18 +42,18 @@ class Withdraw extends Command
         $atm_funds = Datastore::find('funds_available');
 
         if (!$account || $account->pin != $account_pin) {
-            $this->error('Invalid account number or pin');
+            $this->error('ACCOUNT_ERR');
             return;
         }
 
         if ($atm_funds->value < $amount) {
-            $this->error('Not enough funds available in the ATM');
+            $this->error('ATM_ERR');
         }
 
         if ($account->withdraw($amount)){
             $this->info("Successfully withdrawn {$amount} from account {$account->id}");
         } else {
-            $this->error('Not enough funds available in the account');
+            $this->error('FUNDS_ERR');
         }
         
         $atm_funds->value -= $amount;

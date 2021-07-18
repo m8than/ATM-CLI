@@ -40,7 +40,7 @@ class GetBalance extends Command
             $this->info('Balance: ' . $account->balance);
             $this->info('Available: ' . $account->available);
         } else {
-            $this->error('Invalid account number or pin');
+            $this->error('ACCOUNT_ERR');
         }
     }
 
