@@ -48,13 +48,13 @@ class Withdraw extends Command
 
         if ($atm_funds->value < $amount) {
             $this->error('ATM_ERR');
+            return;
         }
 
-        if ($account->withdraw($amount)){
-            $this->info("Successfully withdrawn {$amount} from account {$account->id}");
-        } else {
+        if (!$account->withdraw($amount)){
             $this->error('FUNDS_ERR');
-        }
+            return;
+        }        
         
         $atm_funds->value -= $amount;
         $atm_funds->save();
@@ -63,6 +63,8 @@ class Withdraw extends Command
         $transaction->account_id = $account->id;
         $transaction->amount = -$amount;
         $transaction->save();
+            
+        $this->info("Successfully withdrawn {$amount} from account {$account->id}");
     }
 
     /**
